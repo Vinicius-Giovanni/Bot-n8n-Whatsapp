@@ -25,7 +25,7 @@ df = pd.Dataframe([{
 }])
 
 
-df.to_csv('preco_bitcoin.csv', mode='a', header=False, index=False)
+#df.to_csv('preco_bitcoin.csv', mode='a', header=False, index=False)
 """
 mode = a ou w(padrão)
 a = append
@@ -48,3 +48,4 @@ index = False ou True(padrão)
 True - Salva o índice como coluna no arquivo
 False - não salva o índice
 """
+
