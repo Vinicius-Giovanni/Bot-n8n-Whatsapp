@@ -1,10 +1,16 @@
+# Junta Bitcoin + Commodities em um único DataFrame e imprime (uma vez).
+
 import pandas as pd
-import time
 from GetCommodities import get_commodities_df
 from GetBitcoin import get_bitcoin_df
 
-v_bitcoin = get_bitcoin_df()
-v_commodities = get_commodities_df()
+if __name__ == "__main__":
+    # Coleta
+    v_bitcoin = get_bitcoin_df()
+    v_commodities = get_commodities_df()
 
-print(v_bitcoin)
-print(v_commodities)
+    # Concatena tudo
+    df = pd.concat([v_bitcoin, v_commodities], ignore_index=True)
+
+    # Imprime
+    print(df)

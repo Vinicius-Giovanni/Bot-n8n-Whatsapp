@@ -1,3 +1,5 @@
+# A cada 60s: Junta Bitcoin + Commodities e salva/append em um CSV.
+
 import os
 import time
 import pandas as pd
@@ -8,7 +10,7 @@ SLEEP_SECONDS = 60
 CSV_PATH = 'cotacoes.csv'
 
 if __name__ == "__main__":
-    # Se quiser garantir cabeçalhona primeira execução, crie o arquivo vazio com header:
+    # Se quiser garantir cabeçalho na primeira execução, crie o arquivo vazio com header:
     if not os.path.exists(CSV_PATH):
         # Escreve cabeçalho apenas uma vez
         cols = ['ativo','preco','moeda','horario_coleta']
