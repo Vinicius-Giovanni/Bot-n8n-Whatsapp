@@ -1,6 +1,8 @@
 import pandas as pd
 import requests
 from datetime import datetime
+from GetCommodities import get_commodities_df
+import time
 
 def get_bitcoin_df():
     # URL para requisitar o valor do bitcoin atual
@@ -27,8 +29,8 @@ def get_bitcoin_df():
 
     return df # Retornar em memória
 
+    
 
-# df.to_csv('preco_bitcoin.csv', mode='a', header=False, index=False)
 """
 mode = a ou w(padrão)
 a = append
@@ -52,3 +54,15 @@ True - Salva o índice como coluna no arquivo
 False - não salva o índice
 """
 
+if __name__ == '__main__':
+    while True:
+        df_btc = get_bitcoin_df()
+        df_comm = get_commodities_df()
+
+        df = pd.concat([df_btc, df_comm], ignore_index=True)
+
+        df.to_csv('preco_bitcoin.csv', mode='a', header=True, index=False)
+
+        print('Preço do Bitcoin salvo com sucesso!')
+
+        time.sleep(30)
